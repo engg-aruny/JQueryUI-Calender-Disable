@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>
+    <!-- Title here -->
+  </title>
+  <link data-require="jqueryui" data-semver="1.10.0" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/css/smoothness/jquery-ui-1.10.0.custom.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script data-require="jquery" data-semver="2.1.4" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+  <script data-require="jqueryui" data-semver="1.10.0" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/jquery-ui.js"></script>
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <h2>Disable all sundays</h2>
+  <p>Date:
+    <input type="text" id="datepicker">
+  </p>
+
+  <h2>To Disable 2nd Saturday & 4th Saturday, 
+  you need to first calculate the sat or sunday of 
+  specific month then disable those dates, 
+  like we did for others calendars</h2>
+  
+  sample code calculate sat & sunday
+  https://www.hscripts.com/scripts/JavaScript/second-fourth.php
+  
+  <h2>Disable public holidays</h2>
+  <p>Date:
+    <input type="text" id="datepicker2">
+  </p>
+</body>
+
+</html>
