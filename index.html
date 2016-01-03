@@ -16,14 +16,14 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <a id="forkme_banner" href="https://github.com/aruny-revionics/JQueryUI-Calender-Disable">View on GitHub</a>
+          <a id="forkme_banner" href="https://github.com/engg-aruny/JQueryUI-Calender-Disable">View on GitHub</a>
 
           <h1 id="project_title">Jqueryui-calender-disable</h1>
           <h2 id="project_tagline">Disable 2nd Saturday, 4th Saturday, public holidays and sundays</h2>
 
             <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/aruny-revionics/JQueryUI-Calender-Disable/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/aruny-revionics/JQueryUI-Calender-Disable/tarball/master">Download this project as a tar.gz file</a>
+              <a class="zip_download_link" href="https://github.com/engg-aruny/JQueryUI-Calender-Disable/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/engg-aruny/JQueryUI-Calender-Disable/tarball/master">Download this project as a tar.gz file</a>
             </section>
         </header>
     </div>
@@ -31,15 +31,57 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>
-<a id="under-construction" class="anchor" href="#under-construction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Under Construction</h3>
+        <h1>
+<a id="jqueryui-calender-disable" class="anchor" href="#jqueryui-calender-disable" aria-hidden="true"><span class="octicon octicon-link"></span></a>JQueryUI-Calender-Disable</h1>
+
+<p>Disable 2nd Saturday, 4th Saturday, public holidays and sundays</p>
+
+<p>Jquery Calendar plugin provide you a option "beforeShowDay", you can find more information on DataPickerUI</p>
+
+<p>To Disable 2nd Saturday &amp; 4th Saturday, you need to first calculate the sat or Sunday of specific month then disable those dates, like we did for others calendars</p>
+
+<p>sample code calculate sat &amp; sunday <a href="https://www.hscripts.com/scripts/JavaScript/second-fourth.php">https://www.hscripts.com/scripts/JavaScript/second-fourth.php</a></p>
+
+<p>Created plunker for you, <a href="https://plnkr.co/edit/inBYY748BptaCd7Ulwwg?p=preview">https://plnkr.co/edit/inBYY748BptaCd7Ulwwg?p=preview</a></p>
+
+<p>//To disable Sundays you need to find out the Day of current date.
+            $(function () {
+                var publicHolidays = [
+                  [11, 28, 2015],
+                  [11, 30, 2015]
+                ];</p>
+
+<pre><code>            $("#datepicker").datepicker({
+                beforeShowDay: function (date) {
+                    var day = date.getDay();
+                    return [(day !== 0), ''];
+                }
+            });
+
+            //To disable public holidays create an array with you holiday list then
+            //return false when you browse calender.
+
+            $("#datepicker2").datepicker({
+                beforeShowDay: function (date) {
+                    for (i = 0; i &lt; publicHolidays.length; i++) {
+                        if (date.getMonth() == publicHolidays[i][0] &amp;&amp;
+                          date.getDate() == publicHolidays[i][1] &amp;&amp;
+                          date.getFullYear() == publicHolidays[i][2]) {
+                            return [false];
+                        }
+                    }
+                    return [true];
+                }
+            });
+        });
+</code></pre>
       </section>
     </div>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">Jqueryui-calender-disable maintained by <a href="https://github.com/aruny-revionics">aruny-revionics</a></p>
+        <p class="copyright">Jqueryui-calender-disable maintained by <a href="https://github.com/engg-aruny">engg-aruny</a></p>
         <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
